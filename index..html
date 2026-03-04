@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAAS SOUTH 2026 · Latin America's Premier SaaS & AI Conference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#00e676;--green2:#69f0ae;--dark:#080c12;--darker:#050810;--card:#0e1420;--border:#1a2235;--text:#c8d6ef;--muted:#6b7fa3}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden;line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,12,18,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:1.3rem;font-weight:900;letter-spacing:-.02em;color:#fff}
+.nav-logo span{color:var(--green)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text);transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--green);color:#000;font-weight:700;font-size:.85rem;padding:10px 22px;border-radius:6px;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:120px 24px 80px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,230,118,.12) 0%,transparent 70%),linear-gradient(180deg,#080c12 0%,#060910 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,230,118,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,230,118,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 70% at 50% 0%,black 0%,transparent 70%)}
+.hero-content{position:relative;max-width:900px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,230,118,.1);border:1px solid rgba(0,230,118,.3);color:var(--green);font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:32px}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:clamp(2.6rem,7vw,5.5rem);font-weight:900;line-height:1.05;letter-spacing:-.04em;margin-bottom:24px}
+h1 em{font-style:normal;color:var(--green)}
+.hero-sub{font-size:1.15rem;color:var(--text);max-width:600px;margin:0 auto 40px;font-weight:400}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--green);color:#000;font-weight:800;font-size:.95rem;padding:15px 32px;border-radius:8px;transition:all .2s;display:inline-block}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,230,118,.4)}
+.btn-outline{border:1.5px solid rgba(255,255,255,.2);color:#fff;font-weight:600;font-size:.95rem;padding:14px 32px;border-radius:8px;transition:all .2s;display:inline-block}
+.btn-outline:hover{border-color:var(--green);color:var(--green)}
+.hero-meta{margin-top:56px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat-num{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;color:#fff}
+.hero-stat-num span{color:var(--green)}
+.hero-stat-label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+
+/* SECTIONS */
+section{padding:96px 48px}
+.section-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--green);margin-bottom:12px}
+.section-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
+.section-sub{font-size:1.05rem;color:var(--text);max-width:560px}
+.section-header{margin-bottom:64px}
+.section-header.centered{text-align:center}
+.section-header.centered .section-sub{margin:0 auto}
+
+/* WHY ATTEND */
+.why{background:var(--darker)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:32px;transition:border-color .3s,transform .3s}
+.why-card:hover{border-color:rgba(0,230,118,.3);transform:translateY(-4px)}
+.why-icon{width:48px;height:48px;background:rgba(0,230,118,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px}
+.why-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.why-card p{font-size:.9rem;color:var(--text);line-height:1.6}
+
+/* SPEAKERS */
+.speakers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+.speaker-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;transition:border-color .3s}
+.speaker-card:hover{border-color:rgba(0,230,118,.3)}
+.speaker-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,rgba(0,230,118,.2),rgba(0,230,118,.05));display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 16px;border:2px solid var(--border)}
+.speaker-name{font-size:.95rem;font-weight:700;margin-bottom:4px}
+.speaker-title{font-size:.78rem;color:var(--muted);margin-bottom:4px}
+.speaker-company{font-size:.82rem;color:var(--green);font-weight:600}
+
+/* STATS BAR */
+.stats-bar{background:linear-gradient(135deg,rgba(0,230,118,.08),rgba(0,230,118,.02));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:56px 48px}
+.stats-inner{display:flex;justify-content:center;gap:80px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-size:3rem;font-weight:900;letter-spacing:-.04em}
+.stat-num span{color:var(--green)}
+.stat-desc{font-size:.85rem;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:.06em}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--darker)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:32px;position:relative}
+.testimonial-card::before{content:'"';position:absolute;top:16px;right:24px;font-size:4rem;color:rgba(0,230,118,.15);font-family:Georgia,serif;line-height:1}
+.testimonial-text{font-size:.95rem;color:var(--text);line-height:1.7;margin-bottom:24px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{width:40px;height:40px;border-radius:50%;background:rgba(0,230,118,.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.testimonial-name{font-size:.9rem;font-weight:700}
+.testimonial-role{font-size:.78rem;color:var(--muted)}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:900px;margin:0 auto}
+.pricing-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:40px;transition:border-color .3s}
+.pricing-card.featured{border-color:var(--green);position:relative;overflow:hidden}
+.pricing-card.featured::before{content:'MOST POPULAR';position:absolute;top:20px;right:-28px;background:var(--green);color:#000;font-size:.65rem;font-weight:800;letter-spacing:.1em;padding:4px 40px;transform:rotate(45deg)}
+.pricing-type{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px}
+.pricing-price{font-size:3rem;font-weight:900;letter-spacing:-.04em;margin-bottom:8px}
+.pricing-price span{font-size:1.1rem;font-weight:400;color:var(--muted)}
+.pricing-orig{font-size:.9rem;color:var(--muted);text-decoration:line-through;margin-bottom:24px}
+.pricing-features{list-style:none;margin-bottom:32px}
+.pricing-features li{padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text);display:flex;align-items:center;gap:10px}
+.pricing-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+
+/* SCHEDULE */
+.schedule-tabs{display:flex;gap:12px;margin-bottom:40px;flex-wrap:wrap}
+.schedule-tab{padding:10px 24px;border-radius:6px;font-size:.88rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);color:var(--text);background:transparent;transition:all .2s}
+.schedule-tab.active,.schedule-tab:hover{border-color:var(--green);color:var(--green);background:rgba(0,230,118,.06)}
+.schedule-items{display:grid;gap:16px}
+.schedule-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:24px;display:flex;gap:24px;align-items:flex-start}
+.schedule-time{font-size:.82rem;color:var(--muted);white-space:nowrap;font-weight:600;min-width:80px;padding-top:2px}
+.schedule-info h4{font-size:1rem;font-weight:700;margin-bottom:4px}
+.schedule-info p{font-size:.85rem;color:var(--text)}
+.schedule-track{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-top:8px}
+
+/* CTA SECTION */
+.cta-section{background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(0,230,118,.1) 0%,transparent 70%);text-align:center;padding:120px 48px;border-top:1px solid var(--border)}
+.cta-section h2{font-size:clamp(2rem,5vw,4rem);font-weight:900;letter-spacing:-.04em;margin-bottom:20px}
+.cta-section p{font-size:1.1rem;color:var(--text);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* FOOTER */
+footer{background:#040608;border-top:1px solid var(--border);padding:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.footer-logo{font-size:1.2rem;font-weight:900;letter-spacing:-.02em}
+.footer-logo span{color:var(--green)}
+.footer-links{display:flex;gap:32px;list-style:none}
+.footer-links a{font-size:.85rem;color:var(--muted);transition:color .2s}
+.footer-links a:hover{color:#fff}
+.footer-copy{font-size:.8rem;color:var(--muted)}
+
+/* SPONSORS */
+.sponsors-grid{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+.sponsor-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px 32px;font-size:.85rem;font-weight:700;color:var(--muted);letter-spacing:.04em}
+
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  section{padding:72px 20px}
+  .stats-inner{gap:40px}
+  footer{padding:32px 20px;flex-direction:column;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SAAS<span>SOUTH</span></div>
+  <ul class="nav-links">
+    <li><a href="#why">Why Attend</a></li>
+    <li><a href="#speakers">Speakers</a></li>
+    <li><a href="#schedule">Agenda</a></li>
+    <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <a href="#pricing" class="nav-cta">Get Your Pass</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🌎 Santiago, Chile · Oct 8–9, 2026</div>
+    <h1>Latin America's <em>SaaS & AI</em> Conference. For Operators.</h1>
+    <p class="hero-sub">Real revenue. Real deployments. Real operators from LatAm's fastest-growing SaaS and B2B tech companies sharing what actually works.</p>
+    <div class="hero-actions">
+      <a href="#pricing" class="btn-primary">Get Your SaaS Pass 🚀</a>
+      <a href="#why" class="btn-outline">Why Attend?</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-stat">
+        <div class="hero-stat-num">2<span>K+</span></div>
+        <div class="hero-stat-label">Attendees</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">80<span>+</span></div>
+        <div class="hero-stat-label">Speakers</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">50<span>+</span></div>
+        <div class="hero-stat-label">Investors</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2</div>
+        <div class="hero-stat-label">Power Days</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ATTEND -->
+<section class="why" id="why">
+  <div class="section-header centered">
+    <div class="section-label">Why SaaS South</div>
+    <h2 class="section-title">Built for LatAm Operators.<br>Focused on What Moves Numbers.</h2>
+    <p class="section-sub">No fluff. No tourist content. Just actionable insights from founders and executives building real SaaS businesses across Latin America.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🤖</div>
+      <h3>AI-Native Growth Playbooks</h3>
+      <p>Learn how LatAm's top operators are embedding AI into their GTM, product, and operations — with real dashboards and real numbers.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💰</div>
+      <h3>Meet Investors & Raise Capital</h3>
+      <p>50+ active VCs and angel investors focused on LatAm B2B SaaS. Structured meetings, warm intros, and deal flow that actually closes.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <h3>Founder-Only Roundtables</h3>
+      <p>Closed-door sessions where founders share raw metrics, hard lessons, and the plays that unlocked their next stage of growth.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌍</div>
+      <h3>The LatAm SaaS Network</h3>
+      <p>Connect with 2,000+ operators, builders, and investors from Brazil, Mexico, Colombia, Chile, and beyond. Your next co-founder or customer is here.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📊</div>
+      <h3>GTM for Emerging Markets</h3>
+      <p>Pricing, localization, payments, and expansion strategies tailored specifically for SaaS businesses operating in LatAm's complex markets.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🚀</div>
+      <h3>Cross-Border Expansion</h3>
+      <p>From LatAm to global. Hear from founders who have successfully expanded into the US, Europe, and beyond — and what they'd do differently.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">$<span>2.4B</span></div>
+      <div class="stat-desc">Capital Raised by Alumni</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span>8</span> Yrs</div>
+      <div class="stat-desc">Fueling LatAm SaaS</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span>95</span>%</div>
+      <div class="stat-desc">Would Attend Again</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span>60+</span></div>
+      <div class="stat-desc">Sessions & Workshops</div>
+    </div>
+  </div>
+</div>
+
+<!-- SPEAKERS -->
+<section id="speakers" style="background:var(--dark)">
+  <div class="section-header centered">
+    <div class="section-label">Past Speaker Alumni</div>
+    <h2 class="section-title">World-Class Voices.<br>LatAm Focus.</h2>
+    <p class="section-sub">SaaS South brings in the operators and investors who are actively building and backing the region's most ambitious tech companies.</p>
+  </div>
+  <div class="speakers-grid">
+    <div class="speaker-card"><div class="speaker-avatar">👩‍💼</div><div class="speaker-name">Ana González</div><div class="speaker-title">CEO & Co-Founder</div><div class="speaker-company">Kushki</div></div>
+    <div class="speaker-card"><div class="speaker-avatar">👨‍💻</div><div class="speaker-name">Rodrigo Teijeiro</div><div class="speaker-title">Founder</div><div class="speaker-company">RecargaPay</div></div>
+    <div class="speaker-card"><div class="speaker-avatar">👩‍🚀</div><div class="speaker-name">Camila Farani</div><div class="speaker-title">Managing Partner</div><div class="speaker-company">G2 Capital</div></div>
+    <div class="speaker-card"><div class="speaker-avatar">👨‍🎯</div><div class="speaker-name">Martín Schrimpff</div><div class="speaker-title">CEO & Founder</div><div class="speaker-company">Instaleap</div></div>
+    <div class="speaker-card"><div class="speaker-avatar">👩‍💡</div><div class="speaker-name">María Fernanda Quiñones</div><div class="speaker-title">Partner</div><div class="speaker-company">Andreessen Horowitz</div></div>
+    <div class="speaker-card"><div class="speaker-avatar">🧑‍🏫</div><div class="speaker-name">Diego Noriega</div><div class="speaker-title">Managing Partner</div><div class="speaker-company">Newtopia VC</div></div>
+    <div class="speaker-card"><div class="speaker-avatar">👨‍💼</div><div class="speaker-name">Sujha Sundararajan</div><div class="speaker-title">VP Sales, LatAm</div><div class="speaker-company">Salesforce</div></div>
+    <div class="speaker-card"><div class="speaker-avatar">👩‍🔬</div><div class="speaker-name">Lorena Suárez</div><div class="speaker-title">CTO & Co-Founder</div><div class="speaker-company">Menta</div></div>
+  </div>
+  <div style="text-align:center;margin-top:48px"><a href="#" class="btn-outline">View All Speakers</a></div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="why" id="schedule">
+  <div class="section-header">
+    <div class="section-label">Agenda</div>
+    <h2 class="section-title">Two Days. Zero Filler.</h2>
+    <p class="section-sub">Every session designed for operators who need answers, not inspiration theater.</p>
+  </div>
+  <div class="schedule-tabs">
+    <div class="schedule-tab active">Day 1 — Oct 8</div>
+    <div class="schedule-tab">Day 2 — Oct 9</div>
+  </div>
+  <div class="schedule-items">
+    <div class="schedule-item">
+      <div class="schedule-time">8:30 AM</div>
+      <div class="schedule-info">
+        <h4>Doors Open & Networking Breakfast</h4>
+        <p>Connect with operators and investors before the main stage opens</p>
+        <div class="schedule-track">General</div>
+      </div>
+    </div>
+    <div class="schedule-item">
+      <div class="schedule-time">9:30 AM</div>
+      <div class="schedule-info">
+        <h4>Opening Keynote: The State of LatAm SaaS in 2026</h4>
+        <p>Data-driven overview of investment, growth, and AI adoption across the region</p>
+        <div class="schedule-track">Main Stage</div>
+      </div>
+    </div>
+    <div class="schedule-item">
+      <div class="schedule-time">10:30 AM</div>
+      <div class="schedule-info">
+        <h4>From $1M to $10M ARR: The Hardest Stretch</h4>
+        <p>Founders share the specific moves that unlocked their growth from seed to Series A</p>
+        <div class="schedule-track">Growth Track</div>
+      </div>
+    </div>
+    <div class="schedule-item">
+      <div class="schedule-time">11:30 AM</div>
+      <div class="schedule-info">
+        <h4>AI Agents in B2B SaaS: What's Real vs. Hype</h4>
+        <p>Live demos and implementation breakdowns from operators using AI agents in production</p>
+        <div class="schedule-track">AI & Product Track</div>
+      </div>
+    </div>
+    <div class="schedule-item">
+      <div class="schedule-time">2:00 PM</div>
+      <div class="schedule-info">
+        <h4>Investor Panel: What LatAm VCs Are Funding in 2026</h4>
+        <p>Top regional and international VCs on thesis, check size, and what they're missing</p>
+        <div class="schedule-track">Capital Track</div>
+      </div>
+    </div>
+    <div class="schedule-item">
+      <div class="schedule-time">3:30 PM</div>
+      <div class="schedule-info">
+        <h4>Founder Roundtables (Closed Door)</h4>
+        <p>Small group sessions by ARR stage — $500K, $1M, $3M, $5M+</p>
+        <div class="schedule-track">Founder Only</div>
+      </div>
+    </div>
+    <div class="schedule-item">
+      <div class="schedule-time">6:30 PM</div>
+      <div class="schedule-info">
+        <h4>SaaS South Networking Party</h4>
+        <p>Hosted drinks, curated speed networking, and the best informal deals in LatAm tech</p>
+        <div class="schedule-track">Evening Event</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-header centered">
+    <div class="section-label">Don't Take Our Word For It</div>
+    <h2 class="section-title">Operators Trust SaaS South</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p class="testimonial-text">SaaS South is the one event I block on my calendar every year. Closed a strategic partnership and got introduced to my Series A lead — all in two days.</p>
+      <div class="testimonial-author"><div class="testimonial-avatar">🧑</div><div><div class="testimonial-name">Andrés Morales</div><div class="testimonial-role">CEO, Fintoc · Santiago</div></div></div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">If you're building B2B SaaS in LatAm and you're not at SaaS South, you're missing the room where the real conversations happen.</p>
+      <div class="testimonial-author"><div class="testimonial-avatar">👩</div><div><div class="testimonial-name">Valeria Ríos</div><div class="testimonial-role">Founder, Clara · Mexico City</div></div></div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">The quality of operators in the room is unmatched. We deployed $4M into two portfolio companies we met here. The deal flow is real.</p>
+      <div class="testimonial-author"><div class="testimonial-avatar">🧓</div><div><div class="testimonial-name">Carlos Pinto</div><div class="testimonial-role">Managing Partner, Nazca VC</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="background:var(--dark)">
+  <div class="section-header centered">
+    <div class="section-label">Get Your Pass</div>
+    <h2 class="section-title">Early Bird Pricing.<br>Limited Availability.</h2>
+    <p class="section-sub">Prices increase as we get closer to the event. Lock in your rate now.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-type">Startup Pass</div>
+      <div class="pricing-price">$299<span>/person</span></div>
+      <div class="pricing-orig">Regular: $599</div>
+      <ul class="pricing-features">
+        <li>Full 2-day conference access</li>
+        <li>All main stage sessions</li>
+        <li>Networking app & matchmaking</li>
+        <li>Evening networking event</li>
+        <li>On-demand session recordings</li>
+      </ul>
+      <a href="#" class="btn-outline" style="width:100%;text-align:center;display:block">Get Startup Pass</a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-type">Operator Pass</div>
+      <div class="pricing-price">$599<span>/person</span></div>
+      <div class="pricing-orig">Regular: $1,199</div>
+      <ul class="pricing-features">
+        <li>Everything in Startup Pass</li>
+        <li>Founder-only roundtables</li>
+        <li>Investor meeting program</li>
+        <li>VIP networking breakfast</li>
+        <li>Priority speaker access</li>
+        <li>Post-event 1:1 intros</li>
+      </ul>
+      <a href="#" class="btn-primary" style="width:100%;text-align:center;display:block">Get Operator Pass</a>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-type">Investor Pass</div>
+      <div class="pricing-price">$999<span>/person</span></div>
+      <div class="pricing-orig">Regular: $1,999</div>
+      <ul class="pricing-features">
+        <li>Everything in Operator Pass</li>
+        <li>Curated deal flow list</li>
+        <li>Private investor lounge</li>
+        <li>Pre-screened founder meetings</li>
+        <li>Co-investor introductions</li>
+        <li>Annual follow-up reports</li>
+      </ul>
+      <a href="#" class="btn-outline" style="width:100%;text-align:center;display:block">Get Investor Pass</a>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section class="why" id="sponsors">
+  <div class="section-header centered">
+    <div class="section-label">2026 Sponsors & Partners</div>
+    <h2 class="section-title">Backed By LatAm's<br>Leading Tech Ecosystem</h2>
+  </div>
+  <div class="sponsors-grid">
+    <div class="sponsor-item">CORFO</div>
+    <div class="sponsor-item">IDB Lab</div>
+    <div class="sponsor-item">ENDEAVOR</div>
+    <div class="sponsor-item">500 LATAM</div>
+    <div class="sponsor-item">STARTUPS CHILE</div>
+    <div class="sponsor-item">VISA</div>
+    <div class="sponsor-item">HUBSPOT</div>
+    <div class="sponsor-item">AWS LATAM</div>
+    <div class="sponsor-item">STRIPE</div>
+    <div class="sponsor-item">MERCADO PAGO</div>
+    <div class="sponsor-item">ATLAS</div>
+    <div class="sponsor-item">BETAKIT</div>
+  </div>
+  <div style="text-align:center;margin-top:48px">
+    <p style="color:var(--muted);margin-bottom:16px;font-size:.95rem">Interested in sponsoring SaaS South 2026?</p>
+    <a href="#" class="btn-outline">Become a Sponsor</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Don't Miss LatAm's Biggest<br>SaaS Moment of 2026</h2>
+  <p>Join 2,000+ operators, founders, and investors building the future of B2B tech in Latin America.</p>
+  <div class="hero-actions">
+    <a href="#pricing" class="btn-primary">Get Your SaaS Pass 🚀</a>
+    <a href="mailto:info@saassouth.com" class="btn-outline">Contact Us</a>
+  </div>
+  <p style="margin-top:24px;font-size:.82rem;color:var(--muted)">📍 Santiago, Chile · Casa Piedra Convention Center · Oct 8–9, 2026</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SAAS<span>SOUTH</span> 2026</div>
+  <ul class="footer-links">
+    <li><a href="#">Agenda</a></li>
+    <li><a href="#">Speakers</a></li>
+    <li><a href="#">Sponsors</a></li>
+    <li><a href="#">Exhibit</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 SaaS South · info@saassouth.com</div>
+</footer>
+
+<script>
+// Schedule tab switching
+document.querySelectorAll('.schedule-tab').forEach((tab, i) => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.schedule-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.background = 
+    window.scrollY > 50 ? 'rgba(8,12,18,.98)' : 'rgba(8,12,18,.85)';
+});
+</script>
+</body>
+</html>
