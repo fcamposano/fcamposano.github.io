@@ -106,6 +106,7 @@ nav {
     linear-gradient(rgba(26,255,178,.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(26,255,178,.035) 1px, transparent 1px);
   background-size:52px 52px;
+  -webkit-mask-image:radial-gradient(ellipse 85% 65% at 50% 0%, black 0%, transparent 70%);
   mask-image:radial-gradient(ellipse 85% 65% at 50% 0%, black 0%, transparent 70%);
 }
 /* Floating particles */
@@ -232,6 +233,29 @@ nav {
    SECTIONS BASE
 ═══════════════════════════════════════ */
 section { padding:96px 48px; }
+/* Content width cap — keeps grids aligned on wide screens */
+.s-head,
+.qe-layout,
+.princ-grid,
+.valor-tabs,
+.vpanel,
+.emp-grid,
+.emp-section-title,
+.mec-grid,
+.mem-grid,
+.gob-layout,
+.fp-grid,
+.sb-inner,
+.cta-form,
+.cta-final h2,
+.cta-final > p,
+.cta-note,
+.footer-top,
+.footer-bottom {
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+}
 .section-label {
   font-size:.7rem; font-weight:700; text-transform:uppercase;
   letter-spacing:.14em; color:var(--verde);
@@ -585,6 +609,7 @@ section { padding:96px 48px; }
     linear-gradient(rgba(26,255,178,.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(26,255,178,.025) 1px, transparent 1px);
   background-size:40px 40px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 80% at 50% 50%, black 0%, transparent 70%);
   mask-image:radial-gradient(ellipse 70% 80% at 50% 50%, black 0%, transparent 70%);
 }
 .cta-final > * { position:relative; z-index:1; }
@@ -662,13 +687,23 @@ footer {
   .mec-grid { grid-template-columns:1fr; }
   .gob-layout { grid-template-columns:1fr; }
   .sb-inner { gap:40px; }
-  .hero-stat-row { gap:36px; }
+  .hero-stat-row { gap:28px; }
+  .hero-orb-1 { width:280px; height:280px; }
+  .hero-orb-2 { width:180px; height:180px; }
   footer { padding:40px 20px; }
   .footer-top { flex-direction:column; }
+  .cta-final { padding:80px 20px; }
+  .stats-bar { padding:48px 20px; }
 }
 @media(max-width:600px) {
   .princ-grid { grid-template-columns:1fr; }
   .hero-h1 { font-size:2.6rem; }
+  .hero-stat-row { gap:20px; }
+  .hero-stat-n { font-size:1.8rem; }
+  .sb-n { font-size:2.2rem; }
+  .mem-card.featured::after { display:none; }
+  .fp-grid { grid-template-columns:1fr; }
+  .emp-grid { grid-template-columns:1fr; }
 }
 
 /* ═══════════════════════════════════════
